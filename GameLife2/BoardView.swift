@@ -19,6 +19,7 @@ class BoardView: UIView{
     init(frame: CGRect, colony: Colony) {
         c = colony
         super.init(frame: frame)
+        self.backgroundColor = UIColor.green
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,13 +31,14 @@ class BoardView: UIView{
         let square_height = Double(rect.height)/60
         let square_width = Double(rect.width)/60
         
+        
         height = square_height
         width = square_width
         
         for cell in c.colonyCells {
             let rect = CGRect(x: Double(cell.xCoor) * square_width, y: Double(cell.yCoor) * square_height, width: square_width, height: square_height)
             let thisView = UIView(frame: rect)
-            thisView.backgroundColor = UIColor.blue
+            thisView.backgroundColor = UIColor.red
             self.addSubview(thisView)
         }
         
